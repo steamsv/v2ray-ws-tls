@@ -146,7 +146,7 @@ install_v2ray(){
     bash <(curl -L -s https://install.direct/go.sh)  
     cd /etc/v2ray/
     rm -f config.json
-    wget https://raw.githubusercontent.com/atrandys/v2ray-ws-tls/master/config.json
+    wget https://raw.githubusercontent.com/steamsv/v2ray-ws-tls/master/config.json
     v2uuid=$(cat /proc/sys/kernel/random/uuid)
     sed -i "s/aaaa/$v2uuid/;" config.json
     newpath=$(cat /dev/urandom | head -1 | md5sum | head -c 4)
@@ -154,7 +154,7 @@ install_v2ray(){
     sed -i "s/mypath/$newpath/;" /etc/nginx/conf.d/default.conf
     cd /etc/nginx/html
     rm -f /etc/nginx/html/*
-    wget https://github.com/atrandys/v2ray-ws-tls/raw/master/web.zip
+    wget https://github.com/steamsv/v2ray-ws-tls/raw/master/web.zip
     unzip web.zip
     /etc/nginx/sbin/nginx -s stop
     /etc/nginx/sbin/nginx
